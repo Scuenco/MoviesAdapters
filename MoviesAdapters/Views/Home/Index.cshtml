@@ -1,0 +1,28 @@
+﻿@model List<MoviesAdapters.Model.Director>
+
+@foreach (var d in Model)
+{
+    <div class="well">
+        <table>
+            <thead>
+                <tr>
+                    <th><h4>@d.DirectorId</h4></th>
+                    <th><h4>@d.Name</h4></th>
+                    <td>@Html.ActionLink("Details", "Details", new { id = d.DirectorId }, new { @class = "btn btn-default" })</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var m in d.Movies)
+                {
+                    <tr>
+                        <td>@m.MovieId</td>
+                        <td>@m.Title</td>
+                        <td>@m.DateReleased</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+    </div>
+}
+

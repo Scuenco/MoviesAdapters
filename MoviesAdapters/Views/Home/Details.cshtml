@@ -1,0 +1,17 @@
+﻿@model MoviesAdapters.Model.Director
+<h2>@ViewBag.Message</h2>
+
+<h4>@Model.DirectorId</h4>
+<h3>@Model.Name</h3>@Html.ActionLink("Add Movie", "AddMovie", new { id = Model.DirectorId }, new { @class = "btn btn-default" })
+@foreach (var m in Model.Movies)
+{
+    <div class="well">
+        <h4>@m.MovieId</h4>
+        <h4>@m.Title</h4>
+        <h4>@m.DateReleased</h4>
+        @Html.ActionLink("Edit Movie", "EditMovie", new { id = m.MovieId }, new { @class = "btn btn-default" })
+        @Html.ActionLink("Delete Movie", "DeleteMovie", new { id = m.MovieId }, new { @class = "btn btn-default" })
+    </div>
+}
+       
+
